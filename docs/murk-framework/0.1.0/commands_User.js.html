@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: commands/User.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,36 +17,57 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: commands/User.js</h1>
 
     
 
 
 
     
-
-
-    <h3>murk-framework 0.1.0</h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
     <section>
-        <article><h1>murk-framework</h1></article>
+        <article>
+            <pre class="prettyprint source linenums"><code>const Command = require('./Command');
+
+/**
+ * USER command is used during connection initialization.
+ *
+ * @public
+ * @example
+ * client.send(new Commands.User('somedude', 'someREALdude'))
+ */
+class User extends Command {
+	/**
+	 * @param  {username} Username to be set
+	 * @param  {realname} Real name to be set
+	 * @public
+	 *
+	 * @throws {TypeError} If passed invalid command parameters
+	 */
+	constructor(username, realname) {
+		super();
+
+		if (!username || typeof username !== 'string')
+			throw new TypeError('Username must be a valid string');
+
+		if (!realname || typeof realname !== 'string')
+			throw new TypeError('Username must be a valid string');
+
+		this.username = username;
+		this.realname = realname;
+	}
+
+	/**
+	 * @return {string}
+	 * @public
+	 */
+	toString() {
+		return `USER ${this.username} 0 * :${this.realname}`;
+	}
+}
+
+module.exports = User;</code></pre>
+        </article>
     </section>
-
-
 
 
 

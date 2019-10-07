@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: commands/Nick.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,36 +17,52 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: commands/Nick.js</h1>
 
     
 
 
 
     
-
-
-    <h3>murk-framework 0.1.0</h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
     <section>
-        <article><h1>murk-framework</h1></article>
+        <article>
+            <pre class="prettyprint source linenums"><code>const Command = require('./Command');
+
+/**
+ * NICK command is used to change nickname.
+ *
+ * @public
+ * @example
+ * client.send(new Commands.Nick('somedude'))
+ */
+class Nick extends Command {
+	/**
+	 * @param  {nick} Nickname to be set
+	 * @public
+	 *
+	 * @throws {TypeError} If passed invalid command parameters
+	 */
+	constructor(nick) {
+		super();
+
+		if (!nick || typeof nick !== 'string')
+			throw new TypeError('Nick must be a valid string');
+
+		this.nick = nick;
+	}
+
+	/**
+	 * @return {string}
+	 * @public
+	 */
+	toString() {
+		return `NICK ${this.nick}`;
+	}
+}
+
+module.exports = Nick;</code></pre>
+        </article>
     </section>
-
-
 
 
 
