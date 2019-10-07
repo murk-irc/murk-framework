@@ -1,0 +1,31 @@
+{
+  "name": "murk-framework",
+  "version": "0.1.0",
+  "description": "IRC framework used by Murk IRC client",
+  "main": "src/index.js",
+  "scripts": {
+    "docs:generate": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/murk-irc/framework.git"
+  },
+  "keywords": [
+    "murk",
+    "irc",
+    "client"
+  ],
+  "author": "Yousef Sultan <yousef.su.2000@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/murk-irc/framework/issues"
+  },
+  "homepage": "https://github.com/murk-irc/framework#readme",
+  "dependencies": {
+    "irc-message": "^3.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^6.5.1",
+    "jsdoc": "~3.6.3"
+  }
+}
