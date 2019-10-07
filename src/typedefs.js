@@ -5,6 +5,7 @@
  * @property {number} options.port IRC server port
  * @property {nick} options.string Initial nickname
  * @property {username} options.string Initial username
+ * @property {realname} options.string Real name (=username if unspecified)
  */
 
 /**
@@ -52,5 +53,12 @@
  * Received data from server.
  *
  * @event IRCSocket#message
+ * @type {IRCMessage}
+ */
+
+/**
+ * Received a message from server.
+ *
+ * @event Client#receive
  * @type {IRCMessage}
  */

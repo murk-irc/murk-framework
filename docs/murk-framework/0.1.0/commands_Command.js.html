@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: commands/Command.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,36 +17,57 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: commands/Command.js</h1>
 
     
 
 
 
     
-
-
-    <h3>murk-framework 0.1.0</h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
     <section>
-        <article><h1>murk-framework</h1></article>
+        <article>
+            <pre class="prettyprint source linenums"><code>const Client = require('../Client');
+const IRCSocket = require('../IRCSocket');
+
+/**
+ * Represents a valid IRC command that can be sent.
+ * This class may not be used directly, but rather
+ * through implementations of it.
+ *
+ * @protected
+ */
+class Command {
+	/**
+	 * Compiles a valid IRC string that can be directly send to
+	 * server. \r\n is NOT appended though.
+	 *
+	 * @abstract
+	 * @return {string} String to be sent to server
+	 */
+	toString() {
+		return null;
+	}
+
+	/**
+	 * @param  {Client|IRCSocket} pipe The client or socket to send the command to
+	 * @return {Promise}
+	 * @throws {TypeError} If invalid pipe is provided
+	 */
+	sendTo(pipe) {
+		if (pipe instanceof Client) {
+			Client.send(this.toString());
+		} else if (pipe instanceof IRCSocket) {
+			IRCSocket.write(`${this.toString()}\r\n`);
+		} else {
+			throw new TypeError('Invalid parameter passed to Command#sendTo');
+		}
+	}
+}
+
+module.exports = Command;
+</code></pre>
+        </article>
     </section>
-
-
 
 
 

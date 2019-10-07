@@ -1,6 +1,7 @@
 const EventEmitter = require('events');
 const tls = require('tls');
 const net = require('net');
+const util = require('util');
 
 const ircMessage = require('irc-message');
 
@@ -57,6 +58,24 @@ class IRCSocket extends EventEmitter {
 			.on('data', parsed => {
 				this.emit('message', parsed);
 			});
+
+		// Let's promisify some things
+
+		this.socket.write = util.promisify(this.socket.write);
+	}
+
+	/**
+	 * @param  {Buffer|string} Data to write to socket
+	 * @param  {string} Data encoding, defaults to UTF-8
+	 * @return {Promise}
+	 *
+	 * @async
+	 * @example
+	 * socket.write('NICK happylittlecat');
+	 */
+	write(data, encoding = 'utf8') {
+		console.log(`sending ${data}`);
+		return this.socket.write(data, encoding);
 	}
 }
 
