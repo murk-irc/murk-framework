@@ -20,6 +20,10 @@ import { Nick, User } from './commands';
  * @emits Client#receive
  */
 class Client extends EventEmitter {
+	options: ClientOptions;
+	socket: IRCSocket;
+	connected: boolean;
+	channels: any[];
 	/**
 	 * @param {ClientOptions} options IRC client options
 	 *
@@ -66,11 +70,7 @@ class Client extends EventEmitter {
 		if (this.socket && this.connected)
 			throw new Error('Client is alredy connected');
 
-		this.socket = new IRCSocket({
-			host: this.options.host,
-			port: this.options.port,
-			tls: this.options.tls,
-		});
+		this.socket = new IRCSocket(this.options);
 
 		// Handle disconnections
 

@@ -8,13 +8,14 @@ import Command from './Command';
  * client.send(new Commands.Nick('somedude'))
  */
 class Nick extends Command {
+	nick: string;
 	/**
-	 * @param  {nick} Nickname to be set
+	 * @param  {string} nick Nickname to be set
 	 * @public
 	 *
 	 * @throws {TypeError} If passed invalid command parameters
 	 */
-	constructor(nick) {
+	constructor(nick: string) {
 		super();
 
 		if (!nick || typeof nick !== 'string')
@@ -27,7 +28,7 @@ class Nick extends Command {
 	 * @return {string}
 	 * @public
 	 */
-	toString() {
+	toString(): string {
 		return `NICK ${this.nick}`;
 	}
 }

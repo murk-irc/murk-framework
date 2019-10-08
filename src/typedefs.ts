@@ -7,7 +7,14 @@
  * @property {string} username Initial username
  * @property {string} realname Real name (=username if unspecified)
  */
-
+interface ClientOptions {
+    host: string
+    port: number
+    tls: boolean
+    nick: string
+    username: string
+    realname: string
+}
 /**
  * @typedef {object} IRCMessage
  *

@@ -8,14 +8,16 @@ import Command from './Command';
  * client.send(new Commands.User('somedude', 'someREALdude'))
  */
 class User extends Command {
+	username: string;
+	realname: string;
 	/**
-	 * @param  {username} Username to be set
-	 * @param  {realname} Real name to be set
+	 * @param  {string} username Username to be set
+	 * @param  {string} realname Real name to be set
 	 * @public
 	 *
 	 * @throws {TypeError} If passed invalid command parameters
 	 */
-	constructor(username, realname) {
+	constructor(username: string, realname: string) {
 		super();
 
 		if (!username || typeof username !== 'string')
@@ -32,7 +34,7 @@ class User extends Command {
 	 * @return {string}
 	 * @public
 	 */
-	toString() {
+	toString(): string {
 		return `USER ${this.username} 0 * :${this.realname}`;
 	}
 }

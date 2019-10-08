@@ -30,7 +30,7 @@ class Command {
 	 * const nick = new Commands.Nick('happylittlecat');
 	 * nick.sendTo(client);
 	 */
-	sendTo(pipe) {
+	async sendTo(pipe: Client | IRCSocket) {
 		if (pipe instanceof Client) {
 			pipe.send(this.toString());
 		} else if (pipe instanceof IRCSocket) {

@@ -20,10 +20,11 @@ import ircMessage from 'irc-message';
  * @emits IRCSocket#message
  */
 class IRCSocket extends EventEmitter {
+	socket: net.Socket | tls.TLSSocket;
 	/**
 	 * @param {ClientOptions} options IRC client options
 	 */
-	constructor(options) {
+	constructor(options: ClientOptions) {
 		super();
 
 		if (options.tls) {
@@ -59,9 +60,6 @@ class IRCSocket extends EventEmitter {
 				this.emit('message', parsed);
 			});
 
-		// Let's promisify some things
-
-		this.socket.write = util.promisify(this.socket.write);
 	}
 
 	/**
@@ -73,9 +71,11 @@ class IRCSocket extends EventEmitter {
 	 * @example
 	 * socket.write('NICK happylittlecat');
 	 */
-	write(data, encoding = 'utf8') {
+	async write(data: Buffer | string, encoding = 'utf8') {
 		console.log(`sending ${data}`);
-		return this.socket.write(data, encoding);
+		// Let's promisify some things
+		const socketWrite = util.promisify<string | Buffer, string>(this.socket.write);
+		return socketWrite(data, encoding);
 	}
 }
 
