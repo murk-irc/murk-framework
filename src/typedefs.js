@@ -1,11 +1,11 @@
 /**
- * @typedef {object} ClientOptions
- * @property {object} options IRC client options
- * @property {string} options.host IRC server host
- * @property {number} options.port IRC server port
- * @property {nick} options.string Initial nickname
- * @property {username} options.string Initial username
- * @property {realname} options.string Real name (=username if unspecified)
+ * @typedef {object} ClientOptions IRC client options
+ * @property {string} host IRC server host
+ * @property {number} port IRC server port
+ * @property {boolean} tls Use TLS to connect to IRC server
+ * @property {string} nick Initial nickname
+ * @property {string} username Initial username
+ * @property {string} realname Real name (=username if unspecified)
  */
 
 /**
