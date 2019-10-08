@@ -1,9 +1,9 @@
-const EventEmitter = require('events');
-const tls = require('tls');
-const net = require('net');
-const util = require('util');
+import EventEmitter from 'events';
+import tls from 'tls';
+import net from 'net';
+import util from 'util';
 
-const ircMessage = require('irc-message');
+import ircMessage from 'irc-message';
 
 /**
  * A wrapper class designed for sockets to IRC servers.
@@ -80,4 +80,4 @@ class IRCSocket extends EventEmitter {
 }
 
 
-module.exports = IRCSocket;
+export default IRCSocket;

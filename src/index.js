@@ -1,5 +1,1 @@
-const Client = require('./Client');
-
-module.exports = {
-	Client,
-};
+export { default as Client } from './Client';

@@ -1,4 +1,4 @@
-const Command = require('./Command');
+import Command from './Command';
 
 /**
  * USER command is used during connection initialization.
@@ -37,4 +37,4 @@ class User extends Command {
 	}
 }
 
-module.exports = User;
+export default User;

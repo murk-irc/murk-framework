@@ -1,4 +1,4 @@
-const Command = require('./Command');
+import Command from './Command';
 
 /**
  * NICK command is used to change nickname.
@@ -32,4 +32,4 @@ class Nick extends Command {
 	}
 }
 
-module.exports = Nick;
+export default Nick;

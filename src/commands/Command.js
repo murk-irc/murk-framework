@@ -1,5 +1,5 @@
-const Client = require('../Client');
-const IRCSocket = require('../IRCSocket');
+import Client from '../Client';
+import IRCSocket from '../IRCSocket';
 
 /**
  * Represents a valid IRC command that can be sent.
@@ -41,4 +41,4 @@ class Command {
 	}
 }
 
-module.exports = Command;
+export default Command;

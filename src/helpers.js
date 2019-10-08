@@ -26,6 +26,6 @@ function validateOptions(options) {
 		throw new TypeError('Username is invalid');
 }
 
-module.exports = {
+export {
 	validateOptions,
 };

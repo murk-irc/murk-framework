@@ -1,9 +1,3 @@
-const Command = require('./Command');
-const Nick = require('./Nick');
-const User = require('./User');
-
-module.exports = {
-	Command,
-	Nick,
-	User,
-};
+export { default as Command } from './Command';
+export { default as Nick } from './Nick';
+export { default as User } from './User';

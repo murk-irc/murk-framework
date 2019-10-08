@@ -1,8 +1,8 @@
-const EventEmitter = require('events');
-const IRCSocket = require('./IRCSocket');
+import EventEmitter from 'events';
+import IRCSocket from './IRCSocket';
 
-const helpers = require('./helpers');
-const Commands = require('./commands');
+import { validateOptions } from './helpers';
+import { Nick, User } from './commands';
 
 /**
  * Create and maintain an IRC connection.
@@ -47,7 +47,7 @@ class Client extends EventEmitter {
 		if (!merged.realname)
 			merged.realname = merged.username;
 
-		helpers.validateOptions(merged);
+		validateOptions(merged);
 
 		this.options = merged;
 		this.socket = null;
@@ -98,8 +98,8 @@ class Client extends EventEmitter {
 			this.emit('connect');
 			this.connected = true;
 
-			this.send(new Commands.Nick(this.options.nick));
-			this.send(new Commands.User(this.options.nick, this.options.realname));
+			this.send(new Nick(this.options.nick));
+			this.send(new User(this.options.nick, this.options.realname));
 		});
 
 		this.socket.on('message', message => {
@@ -131,4 +131,4 @@ class Client extends EventEmitter {
 }
 
 
-module.exports = Client;
+export default Client;
