@@ -3,7 +3,7 @@ import tls from 'tls';
 import net from 'net';
 import util from 'util';
 
-import ircMessage from 'irc-message';
+import ircMessage, { IRCMessage } from 'irc-message';
 
 /**
  * A wrapper class designed for sockets to IRC servers.
@@ -56,7 +56,7 @@ class IRCSocket extends EventEmitter {
 
 		this.socket
 			.pipe(ircMessage.createStream())
-			.on('data', parsed => {
+			.on('data', (parsed: IRCMessage) => {
 				this.emit('message', parsed);
 			});
 

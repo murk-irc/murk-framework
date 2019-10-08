@@ -16,8 +16,8 @@ class Command {
 	 * @abstract
 	 * @return {string} String to be sent to server
 	 */
-	toString() {
-		return null;
+	toString(): string {
+		return 'null';
 	}
 
 	/**

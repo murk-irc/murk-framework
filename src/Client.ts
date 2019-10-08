@@ -2,7 +2,7 @@ import EventEmitter from 'events';
 import IRCSocket from './IRCSocket';
 
 import { validateOptions } from './helpers';
-import { Nick, User } from './commands';
+import { Nick, User, Command } from './commands';
 
 /**
  * Create and maintain an IRC connection.
@@ -21,7 +21,7 @@ import { Nick, User } from './commands';
  */
 class Client extends EventEmitter {
 	options: ClientOptions;
-	socket: IRCSocket;
+	socket: IRCSocket | null;
 	connected: boolean;
 	channels: any[];
 	/**
@@ -30,7 +30,7 @@ class Client extends EventEmitter {
 	 * @public
 	 * @throws {TypeError} If invalid options are passed
 	 */
-	constructor(options) {
+	constructor(options: ClientOptions) {
 		super();
 
 		if (!options || typeof options !== 'object')
@@ -122,7 +122,7 @@ class Client extends EventEmitter {
 	 * // or
 	 * client.send(new Commands.Nick('happylittlecat'));
 	 */
-	send(data) {
+	async send(data: string | Command) {
 		if (!this.socket)
 			throw new Error('Client is not connected');
 
