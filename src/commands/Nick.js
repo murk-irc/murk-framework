@@ -9,7 +9,7 @@ const Command = require('./Command');
  */
 class Nick extends Command {
 	/**
-	 * @param  {nick} Nickname to be set
+	 * @param  {string} nick Nickname to be set
 	 * @public
 	 *
 	 * @throws {TypeError} If passed invalid command parameters
@@ -24,7 +24,7 @@ class Nick extends Command {
 	}
 
 	/**
-	 * @return {string}
+	 * @returns {string}
 	 * @public
 	 */
 	toString() {

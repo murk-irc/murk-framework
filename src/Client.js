@@ -112,7 +112,7 @@ class Client extends EventEmitter {
 	 * Strings are automatically appended by \r\n.
 	 *
 	 * @param  {string|Command} data Raw string or IRC command
-	 * @return {Promise}
+	 * @returns {Promise}
 	 * @throws {Error} If sending while client is not connected.
 	 *
 	 * @public

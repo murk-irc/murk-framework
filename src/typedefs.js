@@ -1,11 +1,12 @@
 /**
  * @typedef {object} ClientOptions
+ *
  * @property {object} options IRC client options
  * @property {string} options.host IRC server host
  * @property {number} options.port IRC server port
- * @property {nick} options.string Initial nickname
- * @property {username} options.string Initial username
- * @property {realname} options.string Real name (=username if unspecified)
+ * @property {string} options.nick Initial nickname
+ * @property {string} options.username Initial username
+ * @property {string} options.realname Real name (=username if unspecified)
  */
 
 /**
@@ -15,7 +16,7 @@
  * @property {object} tags IRCv3 message tags
  * @property {string} prefix Message prefix and/or source
  * @property {string} command IRC command/verb
- * @property {array} params Array of middle and trailing parameters
+ * @property {Array} params Array of middle and trailing parameters
  */
 
 /**

@@ -9,8 +9,8 @@ const Command = require('./Command');
  */
 class User extends Command {
 	/**
-	 * @param  {username} Username to be set
-	 * @param  {realname} Real name to be set
+	 * @param  {string} username Username to be set
+	 * @param  {string} realname Real name to be set
 	 * @public
 	 *
 	 * @throws {TypeError} If passed invalid command parameters
@@ -29,7 +29,7 @@ class User extends Command {
 	}
 
 	/**
-	 * @return {string}
+	 * @returns {string}
 	 * @public
 	 */
 	toString() {

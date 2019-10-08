@@ -65,9 +65,9 @@ class IRCSocket extends EventEmitter {
 	}
 
 	/**
-	 * @param  {Buffer|string} Data to write to socket
-	 * @param  {string} Data encoding, defaults to UTF-8
-	 * @return {Promise}
+	 * @param  {Buffer|string} data Data to write to socket
+	 * @param  {string} encoding Data encoding, defaults to UTF-8
+	 * @returns {Promise}
 	 *
 	 * @async
 	 * @example

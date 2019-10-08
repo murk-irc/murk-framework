@@ -28,6 +28,7 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "eslint": "^6.5.1",
+    "eslint-plugin-jsdoc": "^15.9.10",
     "eslint-plugin-mocha": "^6.1.1",
     "jsdoc": "~3.6.3",
     "mocha": "^6.2.1",

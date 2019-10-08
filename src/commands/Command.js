@@ -14,7 +14,7 @@ class Command {
 	 * server. \r\n is NOT appended though.
 	 *
 	 * @abstract
-	 * @return {string} String to be sent to server
+	 * @returns {string} String to be sent to server
 	 */
 	toString() {
 		return null;
@@ -22,7 +22,7 @@ class Command {
 
 	/**
 	 * @param  {Client|IRCSocket} pipe The client or socket to send the command to
-	 * @return {Promise}
+	 * @returns {Promise}
 	 * @throws {TypeError} If invalid pipe is provided
 	 *
 	 * @async
@@ -32,9 +32,9 @@ class Command {
 	 */
 	sendTo(pipe) {
 		if (pipe instanceof Client) {
-			pipe.send(this.toString());
+			return pipe.send(this.toString());
 		} else if (pipe instanceof IRCSocket) {
-			pipe.write(`${this.toString()}\r\n`);
+			return pipe.write(`${this.toString()}\r\n`);
 		} else {
 			throw new TypeError('Invalid parameter passed to Command#sendTo');
 		}

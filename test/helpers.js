@@ -23,19 +23,19 @@ describe('helpers', function() {
 
 			const retry = () => expect(() => validateOptions(invalidOptions)).to.throw(TypeError);
 
-			invalidOptions = {...validateOptions, host: null};
+			invalidOptions = { ...validateOptions, host: null };
 			retry();
 
-			invalidOptions = {...validateOptions, port: null};
+			invalidOptions = { ...validateOptions, port: null };
 			retry();
 
-			invalidOptions = {...validateOptions, tls: null};
+			invalidOptions = { ...validateOptions, tls: null };
 			retry();
 
-			invalidOptions = {...validateOptions, nick: null};
+			invalidOptions = { ...validateOptions, nick: null };
 			retry();
 
-			invalidOptions = {...validateOptions, username: null};
+			invalidOptions = { ...validateOptions, username: null };
 			retry();
 		});
 	});
